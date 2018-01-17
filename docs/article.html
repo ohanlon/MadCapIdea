@@ -1,4 +1,5 @@
 ﻿
+
 <head>
 <style type="text/css">
 .auto-style1 {
@@ -15,7 +16,7 @@ already which you can read about on the projects home page on my blog :
 https://sachabarbs.wordpress.com/2017/05/01/madcap-idea/</a> </p>
 <p>There are 13 blog posts there, but I thought it would be good to also have 
 this overall article which covers all of it, as the blog posts are more a 
-sequence of events that I went through which talk about the peices in great 
+sequence of events that I went through which talk about the pieces in great 
 detail as I went through them</p>
 <p>For example these were the blog posts</p>
 <ul>
@@ -158,7 +159,7 @@ https://github.com/renukaradhya/confluentplatform/tree/master/bin/windows</a><br
 just be mindful that you may have to edit the PowerShell script later with some 
 new paths</p>
 <h1>How do I run all this stuff?</h1>
-<p>There are quite a few moving peices to this app, and they all need to be 
+<p>There are quite a few moving pieces to this app, and they all need to be 
 running in order for it to all work together.</p>
 
 
@@ -170,8 +171,8 @@ running in order for it to all work together.</p>
 <li>now run <code>webpack </code>from same folder</li>
 </ul>
 
-<strong>2. Kafka/Zookeeper etc etc</strong>
-<p>You can run the following powershell script to get all the pre-requistites up and running (assuming you have downloaded them all)
+<strong>2. Kafka/Zookeeper, etc, etc</strong>
+<p>You can run the following powershell script to get all the prerequisites up and running (assuming you have downloaded them all)
 </p>
 <ul>
 <li>Open PowerShell command line and change to the <code>PowerShellProject\PowerShellProject\</code> folder and run 
@@ -207,7 +208,7 @@ where you point to this main class <code>RatingStreamProcessingApp</code></li>
 <li>open a NEW tab, login as a new driver, go to the "view job" page</li>
 <li>on the 1st tab (passenger) click the map to push passenger position to driver</li>
 <li>on the 2nd tab (driver) click the map to push driver position to passenger</li>
-<li>repeat last 4 steps for additonal driver</li>
+<li>repeat last 4 steps for additional driver</li>
 <li>on client tab pick driver to accept, click accept button</li>
 <li>complete the job from client tab, give driver rating</li>
 <li>complete the job from paired driver tab, give passenger rating</li>
@@ -216,7 +217,6 @@ where you point to this main class <code>RatingStreamProcessingApp</code></li>
 </ul>
 
 
-<h1>&nbsp;</h1>
 <h1>Known issues</h1>
 <p>The following are known issues</p>
 <ul>
@@ -234,7 +234,7 @@ where you point to this main class <code>RatingStreamProcessingApp</code></li>
 	just kind of got to the end of a very long road (I have been writing about 
 	this on an off for 6 months of train rides, as well as not caring at all, 
 and just staring into space) and was just happy that I got 
-	99% of the stuff done that I set out to do. I just thought you know what, the app as it is now, 
+	99% of the stuff done that I set out to do. I just thought, you know what? The app as it is now, 
 	demonstrates everything I set out to do, so I&#39;m ok with 1-2 known issues. 
 	</p>
 <h1>Some basics</h1>
@@ -244,7 +244,7 @@ blocks that make up the app as a whole first, the next few sections will do
 that.It is a long list of stuff, and the demo app makes use of all of this plus 
 a few more bits, that I deemed to be not important enough to warrant their own 
 sections. We will learn more about each of these when we walk through the actual 
-demo app code, this is more of an overiew of the various parts before we look at 
+demo app code, this is more of an overview of the various parts before we look at 
 the specific usage</p>
 <h2>What is Kafka?</h2>
 <p><strong>Overview</strong></p>
@@ -273,11 +273,8 @@ in a fault-tolerant fashion has made it replace some of the conventional
 messaging systems like JMS, AMQP, etc.</em></p>
 <p><em>The major terms of Kafka&#39;s architecture are topics, records, and brokers. 
 Topics consist of stream of records holding different information. On the other 
-hand, Brokers are responsible for replicating the messages. There are four major 
-APIs in Kafka:The major terms of Kafka&#39;s architecture are topics, records, and 
-brokers. Topics consist of stream of records holding different information. On 
-the other hand, Brokers are responsible for replicating the messages. There are 
-four major APIs in Kafka:</em></p>
+hand, brokers are responsible for replicating the messages. There are four major 
+APIs in Kafka:</em></p>
 <ul>
 	<li><em>Producer API - Permits the applications to publish streams of 
 	records. </em><strong>(covered in this article)</strong></li>
@@ -343,20 +340,20 @@ fault-tolerant.</em></p>
 <p><a href="https://docs.confluent.io/current/streams/introduction.html">
 https://docs.confluent.io/current/streams/introduction.html</a> up on date 
 02/01/18</p>
-<p>So that is what the official docs say about it,. here is my take on it</p>
+<p>So that is what the official docs say about it. Here is my take on it:</p>
 <p>Kafka Streams is an additional API on top of Kafka that allows you to perform 
 many aggregate and filtering, time based windowing operations over the incoming 
-messages, that can either be stored to an internal database key-value 
+messages that can either be stored to an internal database key-value 
 representation known as a KTable which uses a state store (based on
-<a href="http://rocksdb.org/" target="_blank">RocksDB</a>). Or you may choose to 
+<a href="http://rocksdb.org/" target="_blank">RocksDB</a>) or you may choose to 
 push the transformed stream values out to a new output topic. </p>
 <p>You can perform complex stream processing, merge streams, and also store 
 accumulated stream state.</p>
-<p>It is a an <strong>AWESOME</strong> bit of kit</p>
+<p>It is an <strong>AWESOME</strong> bit of kit</p>
 <h2>What is Play?</h2>
 <p>The Play Framework is a Scala based MVC (model view controller) type web 
 application framework. As such it has in built mechanisms for things typical of 
-a MVC web framework (certainly if you have done any ASP MVC . NET you would find 
+a MVC web framework (certainly if you have done any ASP MVC.NET you would find 
 it very familiar).</p>
 <p>So we have the typical MVC concerns covered by the
 <a href="https://www.playframework.com/documentation/2.5.x/Home" target="_blank">
@@ -369,18 +366,18 @@ Play Framework</a></p>
 	<li>JSON support</li>
 	<li>View engine</li>
 </ul>
-<p>Thing is I will not be doing any actual HTML in the <a href="https://www.playframework.com/documentation/2.5.x/Home" target="_blank">
-Play Framework</a> back end code, I want to do all of that using the previously covered webpack/typescript/react starter code I have shown so far. Rather I will be using the Play Framework as a API backend, where we will simply be using various controllers as endpoint to accept/serve JSON, and Event streamed data. All the actual front end work/routing will be done via webpack and React.
+<p>Thing is, I will not be doing any actual HTML in the <a href="https://www.playframework.com/documentation/2.5.x/Home" target="_blank">
+Play Framework</a> back end code, I want to do all of that using the previously covered webpack/typescript/react starter code I have shown so far. Rather I will be using the Play Framework as an API backend, where we will simply be using various controllers as endpoint to accept/serve JSON, and Event streamed data. All the actual front end work/routing will be done via webpack and React.
 </p>
 <p>There are still some very appealing parts in Play that I did want to make use of, such as:</p>
 <ul>
 <li>It is Scala, which means when I come to integrate Kafka / Kafka Streams it will be ready to do so</li>
 <li>It uses Akka which I wanted to use. I also want to use Akka streams, which Play also supports</li>
 <li>Play controllers lend themselves quite nicely to being able to create a fairly simple REST API</li>
-<li>It can be used fairly easily to serve static files (think of these as the final artifacts that come out of the webpack generation pipeline). So things like minimized CSS / JS etc etc</li>
+<li>It can be used fairly easily to serve static files (think of these as the final artefacts that come out of the webpack generation pipeline). So things like minimized CSS / JS etc etc</li>
 </ul>
 <p>So hopefully you can see that using Play Framework still made a lot of sense, even if we will only end up using 1/2 of what it has to offer. To be honest the idea of using controllers for a REST API is something that is done in ASP MVC .NET all time either by using of actual controllers or by using the WebApi.</p>
-<p>Ok so now that we know what we will be using Play Framework for, how about we dive into the code for this post.</p>
+<p>Ok, so now that we know what we will be using Play Framework for, how about we dive into the code for this post.</p>
 <p><strong>Play Framework Basics</strong></p>
 <p>Lets start by looking at the bare bones structure of a Play Framework application, which looks like this (I am using IntelliJ IDEA as my IDE)</p>
 
@@ -389,14 +386,14 @@ Play Framework</a> back end code, I want to do all of that using the previously 
 <p><img alt="" height="377" src="play1.png" width="400"></p>
 <p>Lets talk a bit about each of these folders</p>
 <p><strong>app</strong></p>
-<p>This folder would hold controllers/views (I have added the Entities folder there that is not part of a Play Framework application requirements). Inside the controllers folder you would find controllers, and inside the views folder you would find views. For the final app there will be no views folder, I simply kept that in this screenshot to talk about what a standard Play Framework application looks like</p>
+<p>This folder would hold controllers/views (I have added the Entities folder there that is not part of a Play Framework application requirements). Inside the controllers folder you would find controllers, and inside the views folder you would find views. For the final app there will be no views folder, I simply kept that in this screenshot to talk about what a standard Play Framework application looks like</p>
 
 <p><strong>conf</strong></p>
-<p>This folder contains the configuration for the Play Framework application. This would include the special routes file, and any other application specific configuration would might have.</p>
-<p>Lets just spend a minute having a look at the Play Framework routes file, which you can read more about here : https://www.playframework.com/documentation/2.5.x/ScalaRouting</p>
-<p>The routes file has its own DSL, that is responsible for matching a give route with a controller + controller action. The controller action that matches the route is ultimately responsible for servicing the http request. I think the DSL shown in routes file below is pretty self explanatory with perhaps the exception of the assets based routes.</p>
-<p>All assets based http requests (ie ones that start with /assets for example http://localhost:9000/assets/images/favicon.png would actually be routed through to a special controller called Assets. You dont see any code for this one, its part of the Play Framework application codebase. This special Assets inbuilt play controller is responsible for serving up static data files which it expects to find in the public folder. So for example our initial request of http://localhost:9000/assets/images/favicon.png would get translated into this file (relative path from project root) /public/images/favicon.png. As I say this is handled for you by the special Assets built in controller.</p>
-<p>The only other funky part to the Assets based route is that it uses a *file in its route. Which essentially boils down to the play framework being able match a multi-part path. Which we actually just saw with the example above http://localhost:9000/assets/images/favicon.png , see how that contains not only the file name, but also a directory of images. The Assets controller + routing is able to deal with that path just fine.</p>
+<p>This folder contains the configuration for the Play Framework application. This would include the special routes file, and any other application specific configuration would might have.</p>
+<p>Lets just spend a minute having a look at the Play Framework routes file, which you can read more about here : https://www.playframework.com/documentation/2.5.x/ScalaRouting</p>
+<p>The routes file has its own DSL, that is responsible for matching a give route with a controller + controller action. The controller action that matches the route is ultimately responsible for servicing the http request. I think the DSL shown in routes file below is pretty self explanatory with perhaps the exception of the assets based routes.</p>
+<p>All assets based http requests (ie ones that start with /assets for example http://localhost:9000/assets/images/favicon.png would actually be routed through to a special controller called Assets. You dont see any code for this one, its part of the Play Framework application codebase. This special Assets inbuilt play controller is responsible for serving up static data files which it expects to find in the public folder. So for example our initial request of http://localhost:9000/assets/images/favicon.png would get translated into this file (relative path from project root) /public/images/favicon.png. As I say this is handled for you by the special Assets built in controller.</p>
+<p>The only other funky part to the Assets based route is that it uses a *file in its route. Which essentially boils down to the play framework being able match a multi-part path. Which we actually just saw with the example above http://localhost:9000/assets/images/favicon.png, see how that contains not only the file name, but also a directory of images. The Assets controller + routing is able to deal with that path just fine.</p>
 <pre>
 # Routes
 # This file defines all application routes (Higher priority routes first)
@@ -412,11 +409,11 @@ GET        /scala/comet/kick                   controllers.ScalaCometController.
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file                       controllers.Assets.at(path="/public", file)
 </pre>
-<p>Ok so moving on to the rest of the standard folders that come with a Play Framework application</p>
+<p>Ok, so moving on to the rest of the standard folders that come with a Play Framework application</p>
 <p><strong>public</strong></p>
 <p>This is where you will need to put any static content that you wish to be served. Obviously views (if you use that part of play) will be within in the app/views folder. Like I say I am not using the views aspect of Play so you will not be seeing any views in my views folder. I instead want to let webpack et all generate my routing, web page etc etc. I do however want to serve bundles so later on I will be showing you how my webpack generated bundles fit in with the Play Framework ecco system.</p>
 <p><strong>target</strong></p>
-<p>Since this is a scala based project we get the standard scala based folders, and target is one of them, that has the generated/compiled code in it.</p>
+<p>Since this is a Scala based project we get the standard Scala based folders, and target is one of them, that has the generated/compiled code in it.</p>
 <p><strong>SBT</strong></p>
 <p>It is worth pointing out that my Play Framework application is an SBT based project, as such there is an SBT aspect to it, which largely boils down to these files</p>
 <p><strong>Project [root-build] / plugs.sbt file</strong></p>
@@ -453,16 +450,13 @@ initialize := {
 </pre>
 <p>So I think that covers the basics of a standard Play Framework application, the remainder of this article will cover the actual code for the demo project, where we will dive into routes/controllers etc etc</p>
 
-
-
-
 <h2>What is Akka</h2>
 <p><a href="https://akka.io/" target="_blank">Akka</a> is a great framework for 
 building distibuted fault tolerant apps. It is built around the concept of 
-actors, and has failure in mnid from the outset. It also comes with suport for 
-HTTP over actors, and comes with play suport out of the box. One thing that also 
+actors, and has failure in mind from the outset. It also comes with support for 
+HTTP over actors, and comes with play support out of the box. One thing that also 
 comes with Akka that I make use of is its reactive streams API. This is 
-something like Rx whre you build streams of data that are also fault tolerant, 
+something like Rx where you build streams of data that are also fault tolerant, 
 and also feature back pressure to ensure a consumer is not over burdened by a 
 fast producer. I have written a lot about Akka before which you can read more 
 about here :
@@ -492,7 +486,7 @@ files, such as</p>
 	<li>Various task runners can be used such as Grunt/Gulp to build bundles</li>
 </ul>
 <p>All of these have there pros/cons, however I think that it is fair to say 
-that WebPack has emerged as the defacto standard module manager for JavaScript 
+that WebPack has emerged as the de-facto standard module manager for JavaScript 
 (for now anyway), that supports rich dependency graphs and bundles and also 
 supports things like</p>
 <ul>
@@ -511,7 +505,7 @@ dependencies</p>
 <h2>What is Babel?</h2>
 <p><a href="https://babeljs.io/" target="_blank">Babel</a> is a very neat 
 JavaScript library that allows you to use next generation JavaScript syntax now, 
-even if your targetted browser doesn&#39;t suport the syntax you are trying to use. 
+even if your targeted browser doesn&#39;t support the syntax you are trying to use. 
 Is is installed via the Node Packager Manager (NPM) and is one part of you 
 transpilation pipeline. For this article we push stuff through TypeScript 
 transpiler -&gt; Babel transpiler and the final result is JavaScript that can be 
@@ -520,14 +514,14 @@ sent ot the browser.</p>
 browser support for these may be varied, or not supported at all</p>
 <p><img alt="" height="308" src="babel1.png" width="500"></p>
 <h2>What is SASS/SCSS/LESS</h2>
-<p>I guess if you have used HTML you will have certainluy used CSS. Now CSS is 
+<p>I guess if you have used HTML you will have certainly used CSS. Now CSS is 
 great, but it lacks certain things such as</p>
 <ul>
 	<li>Variables</li>
-	<li>Heirachy selectors</li>
+	<li>Hierarchy selectors</li>
 	<li>Mixins</li>
 </ul>
-<p>This is something that SASS/SCSS fixes. In much the same way that things like 
+<p>This is something that SASS/SCSS fixes. In much the same way that languages like 
 Typescript are transpiled to JavaScript, SASS/SCSS is transpiled to CSS.</p>
 <p>By using SCSS you are now able to do things like this, note the variables</p>
 <pre lang="css">
@@ -550,17 +544,17 @@ $margin: 16px;
 and developed by Facebook, and it is a JavaScript library for building user 
 interfaces. It is not as much as a framework as say something like Angular is, 
 and it is really just the &quot;View&quot; part of the typical MVC puzzle that is so 
-prevelant in modern JS UI libraries/frameworks. It is declarative, and component 
+prevalent in modern JS UI libraries/frameworks. It is declarative, and component 
 centric. It is accepted that a React app would be made up of many smaller 
 components. I can&#39;t give you a full walkthrough of React here, but we will 
 certainly see more React code/components as the article demo code is dissected 
 below</p>
 <h2>What is TypeScript?</h2>
 <p><a href="https://www.typescriptlang.org/" target="_blank">Typescript</a>&nbsp; 
-is a Microsoft offering that attempts to bring better typings and other useful 
+is a Microsoft offering that attempts to bring better typing and other useful 
 constructs/language features to JavaScript. As TypeScript is a superset of 
 JavaScript, existing JavaScript programs are also valid TypeScript programs. 
-Typescript files will get transpiled into regular javascript files via a 
+Typescript files will get transpiled into regular JavaScript files via a 
 Typescript compiler (or in the case of WebPack via a Webpack loader)</p>
 <p>Some of the features that TypeScript brings to the table are</p>
 <ul>
@@ -571,7 +565,7 @@ Typescript compiler (or in the case of WebPack via a Webpack loader)</p>
 	<li>Generics</li>
 </ul>
 <p>The demo article that goes with this makes a lot of use of TypeScript 
-(particularly TSX which is a TypeScript verison of a React JSX file), and will 
+(particularly TSX which is a TypeScript version of a React JSX file), and will 
 also make use of a nice
 <a href="https://en.wikipedia.org/wiki/Inversion_of_control" target="_blank">
 Inversion Of Control</a> container for TypeScript called
@@ -585,7 +579,7 @@ following areas</p>
 <ul>
 	<li>Play backend API (scala)</li>
 	<li>React front end (TypeScript)</li>
-	<li>Kafka Streams (scala)</li>
+	<li>Kafka Streams (Scala)</li>
 </ul>
 <p>We will get to all of these parts, but before that let&#39;s examine some of the 
 stuff that helps the front end work get of the ground</p>
@@ -672,7 +666,7 @@ PlayBackEndApi/FrontEndWebSite/package.json</code> file</p>
 }
 </pre>
 <h3>Babel config</h3>
-<p>As stated above the demo project makes use of 
+<p>As stated above, the demo project makes use of 
 <a href="https://babeljs.io/" target="_blank">Babeljs.io</a> to use future state 
 JavaScript now. As such we also need to supply a small Babel config file (<code>PlayBackEndApi/FrontEndWebSite/.babelrc</code>), 
 this is shown below, where we opt to use the ES2015/React presets</p>
@@ -715,13 +709,13 @@ then send the JavaScript to the browser. That sounds great, but do you write
 code write code first time, I don&#39;t, and constantly need to debug stuff.</p>
 <p>So if I wrote stuff in TypeScript and that gets turned into plain vanilla 
 JavaScript, how on earth do I make sense of the stuff that is in the browser?</p>
-<p>Well that is where sourcemaps come in, the literally send a clever map that 
+<p>Well that is where sourcemaps come in. The send a clever map that 
 allows you to put a break point into your source code (which will be sent to the 
-browser, ideally only in development phases) and it will know how to translate 
+browser, ideally only in development phases) and it knows how to translate 
 that breakpoint into the correct place/line in the transpiled vanilla JavaScript 
 that the browser is using.</p>
-<p>Webpack has in built support for sourcemaps (phew)</p>
-<p>The best write up of source maps I have seen is this one :
+<p>Webpack has inbuilt support for sourcemaps (phew)</p>
+<p>The best write up of sourcemaps I have seen is this one :
 <a href="https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">
 https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/</a></p>
 <div>
@@ -4755,6 +4749,3 @@ export class ViewRating extends React.Component&lt;undefined, ViewRatingState&gt
 <p>This was certainly a challenging thing to write, and I am honestly pleased that I got it done, I have had a really good time writing this. And it has been a great project for self improvement, and 
 I would recommend this type of thing as a great use of time. Go on find yourself 
 a pet project</p>
-
-
-
